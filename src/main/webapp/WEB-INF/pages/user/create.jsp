@@ -18,7 +18,7 @@
 <body>
 	<div class="container py-5">
 		<h3>User Create</h3>
-		<c:url value="/user/create/save" var="createDb"></c:url>
+		<c:url value="/create/save" var="createDb"></c:url>
 		<form:form method="POST" action="${createDb}" modelAttribute="saveForm">
 			<div class="form-group mb-3 col-5">
 				<form:label path="name">Name</form:label>

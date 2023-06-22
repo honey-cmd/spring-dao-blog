@@ -18,7 +18,7 @@
 <body>
 	<div class="container py-5">
 		<h3>User Update</h3>
-		<c:url value="/user/update/save" var="updateDb"></c:url>
+		<c:url value="/update/save" var="updateDb"></c:url>
 		<form:form method="POST" action="${updateDb}" modelAttribute="updateUser">
 			<form:hidden path="id"/>
 			<div class="form-group mb-3 col-5">

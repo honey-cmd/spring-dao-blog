@@ -29,15 +29,15 @@ public class UserController {
 
 @GetMapping("/list")
 	public ModelAndView getUserList() {
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv = new ModelAndView("/user/list");
 		List<UserDto> userList = this.userService.getAllUser();
 		mv.addObject("userLists", userList);
 		return mv;
 	}
 
-	@RequestMapping(value = "/create")
+@RequestMapping(value = "/user/create")
 	public ModelAndView create() {
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv = new ModelAndView("/user/create");
 		mv.addObject("saveForm", new UserForm());
 
 		return mv;
@@ -45,15 +45,15 @@ public class UserController {
 
 	@RequestMapping(value = "/create/save", method = RequestMethod.POST)
 	public ModelAndView saveUser(@ModelAttribute("saveForm") @Valid UserForm userForm, BindingResult result) {
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv = new ModelAndView("");
 		userService.saveUser(userForm);
-		mv.setViewName("redirect:/user/list");
+		mv.setViewName("redirect:/list");
 		return mv;
 	}
 
 	@RequestMapping(value = "/update")
 	public ModelAndView updateUser(@RequestParam int updateId) {
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv = new ModelAndView("/user/update");
 		UserDto userDto = userService.getUserById(updateId);
 		mv.addObject("updateUser", new UserForm(userDto));
 
